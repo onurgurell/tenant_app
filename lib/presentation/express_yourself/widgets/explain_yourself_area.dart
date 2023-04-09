@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tenant_app/core/constants/app_strings.dart';
 import 'package:tenant_app/core/theme/theme.dart';
 import 'package:tenant_app/extensions/context_extension.dart';
+import 'package:tenant_app/ui_kit/base_area/base_area.dart';
 import 'package:tenant_app/ui_kit/text/text_withgooglefonts.dart';
 
 class ExplainYourSelfArea extends StatelessWidget {
@@ -11,13 +12,9 @@ class ExplainYourSelfArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const height = 200.0;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        TextStyleGenerator(
-          text: AppStrings.explainYourSelfTitle,
-          fontSize: 18.sp,
-        ),
+    return BaseArea(
+      title: AppStrings.explainYourSelfTitle,
+      widget: [
         SizedBox(height: 20.h),
         SizedBox(
           height: height,

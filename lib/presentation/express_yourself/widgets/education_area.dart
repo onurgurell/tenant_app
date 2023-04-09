@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:tenant_app/core/constants/app_strings.dart';
+import 'package:tenant_app/ui_kit/base_area/base_area.dart';
 import 'package:tenant_app/ui_kit/button/choose_button.dart';
-import 'package:tenant_app/ui_kit/text/text_withgooglefonts.dart';
 import 'package:tenant_app/view_model/express_yourself_view_model.dart';
 
 class EducationArea extends StatelessWidget {
@@ -13,13 +13,9 @@ class EducationArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ExpressYourselfViewModel>(
       builder: (context, viewModel, child) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TextStyleGenerator(
-              text: AppStrings.eduStatusTitle,
-              fontSize: 18.sp,
-            ),
+        return BaseArea(
+          title: AppStrings.eduStatusTitle,
+          widget: [
             SizedBox(height: 20.h),
             ChooseButton(
               onTap: () =>

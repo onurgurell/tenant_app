@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tenant_app/core/constants/app_strings.dart';
 import 'package:tenant_app/core/theme/theme.dart';
+import 'package:tenant_app/ui_kit/base_area/base_area.dart';
 import 'package:tenant_app/ui_kit/text/text_withgooglefonts.dart';
 
 class SalaryOrRentArea extends StatelessWidget {
@@ -15,13 +16,9 @@ class SalaryOrRentArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        TextStyleGenerator(
-          text: title,
-          fontSize: 18.sp,
-        ),
+    return BaseArea(
+      title: title,
+      widget: [
         SizedBox(height: 20.h),
         SizedBox(
           height: 50.h,

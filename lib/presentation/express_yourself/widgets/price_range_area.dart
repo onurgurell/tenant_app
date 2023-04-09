@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:tenant_app/core/constants/app_strings.dart';
 import 'package:tenant_app/core/theme/theme.dart';
 import 'package:tenant_app/extensions/context_extension.dart';
+import 'package:tenant_app/ui_kit/base_area/base_area.dart';
 import 'package:tenant_app/ui_kit/text/text_withgooglefonts.dart';
 import 'package:tenant_app/view_model/express_yourself_view_model.dart';
 
@@ -15,16 +16,9 @@ class PriceRangeArea extends StatelessWidget {
     return Consumer<ExpressYourselfViewModel>(
       builder: (context, viewModel, child) {
         final currentRange = viewModel.currentRangeValues;
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: context.getDynmaicWidth(.6),
-              child: TextStyleGenerator(
-                text: AppStrings.priceWantAreaTitle,
-                fontSize: 18.sp,
-              ),
-            ),
+        return BaseArea(
+          title: AppStrings.priceWantAreaTitle,
+          widget: [
             RangeSlider(
               values: currentRange,
               max: 100000,

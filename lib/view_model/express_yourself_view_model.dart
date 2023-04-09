@@ -21,7 +21,6 @@ class ExpressYourselfViewModel extends ChangeNotifier {
   int get selectedPetButton => _selectedPetNoButton;
   int get selectedIncomeButton => _selectedIncomeButton;
   bool get isSelected => _isSelected;
-
   RangeValues get currentRangeValues => _currentRangeValues;
   File? get image => _image;
   String? get dateTime => _dateTime;

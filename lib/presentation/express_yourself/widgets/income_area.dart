@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:tenant_app/core/constants/app_strings.dart';
 import 'package:tenant_app/core/theme/theme.dart';
 import 'package:tenant_app/extensions/context_extension.dart';
+import 'package:tenant_app/ui_kit/base_area/base_area.dart';
 import 'package:tenant_app/ui_kit/button/choose_button.dart';
 import 'package:tenant_app/ui_kit/text/text_withgooglefonts.dart';
 import 'package:tenant_app/view_model/express_yourself_view_model.dart';
@@ -15,13 +16,9 @@ class IncomeArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ExpressYourselfViewModel>(
       builder: (context, viewModel, child) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TextStyleGenerator(
-              text: AppStrings.incomeHaveTitle,
-              fontSize: 18.sp,
-            ),
+        return BaseArea(
+          title: AppStrings.incomeHaveTitle,
+          widget: [
             SizedBox(height: 20.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
