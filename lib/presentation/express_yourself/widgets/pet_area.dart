@@ -5,7 +5,8 @@ import 'package:tenant_app/core/constants/app_strings.dart';
 import 'package:tenant_app/core/theme/theme.dart';
 import 'package:tenant_app/extensions/context_extension.dart';
 import 'package:tenant_app/ui_kit/base_area/base_area.dart';
-import 'package:tenant_app/ui_kit/button/select_button.dart';
+import 'package:tenant_app/ui_kit/button/multi_button.dart';
+import 'package:tenant_app/ui_kit/button/yes_Or_no_button.dart';
 import 'package:tenant_app/ui_kit/text/text_withgooglefonts.dart';
 import 'package:tenant_app/view_model/express_yourself_view_model.dart';
 
@@ -23,28 +24,28 @@ class PetArea extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _selectedTab(
-                  context,
-                  1,
-                  AppStrings.expressYesTitle,
-                  viewModel.selectedPetButton == 1
-                      ? BaseTheme.expressSelectedColor
-                      : BaseTheme.expressNotSelectedBorderColor,
-                  viewModel.selectedPetButton == 1
+                YesOrNoButton(
+                  onTap: () => viewModel.petYesOrNoButton(1),
+                  title: AppStrings.expressYesTitle,
+                  buttonColor: viewModel.selectedPetButton == 1
                       ? BaseTheme.expressSelectedButtonColor
                       : BaseTheme.mainWhiteColor,
+                  borderColor: viewModel.selectedPetButton == 1
+                      ? BaseTheme.expressSelectedColor
+                      : BaseTheme.expressNotSelectedBorderColor,
+                  selectIndex: 1,
                 ),
-                _selectedTab(
-                  context,
-                  2,
-                  AppStrings.expressNoTitle,
-                  viewModel.selectedPetButton == 2
-                      ? BaseTheme.expressSelectedColor
-                      : BaseTheme.expressNotSelectedBorderColor,
-                  viewModel.selectedPetButton == 2
+                YesOrNoButton(
+                  onTap: () => viewModel.petYesOrNoButton(2),
+                  title: AppStrings.expressNoTitle,
+                  buttonColor: viewModel.selectedPetButton == 2
                       ? BaseTheme.expressSelectedButtonColor
                       : BaseTheme.mainWhiteColor,
-                )
+                  borderColor: viewModel.selectedPetButton == 2
+                      ? BaseTheme.expressSelectedColor
+                      : BaseTheme.expressNotSelectedBorderColor,
+                  selectIndex: 1,
+                ),
               ],
             ),
             SizedBox(height: 40.h),
@@ -69,33 +70,6 @@ class PetArea extends StatelessWidget {
           ],
         );
       },
-    );
-  }
-
-  InkWell _selectedTab(BuildContext context, int selectIndex, String title,
-      Color borderColor, Color buttonColor) {
-    return InkWell(
-      onTap: () {
-        Provider.of<ExpressYourselfViewModel>(context, listen: false)
-            .updateYesOrNoButton(selectIndex);
-      },
-      child: Container(
-        height: 50.h,
-        width: context.getDynmaicWidth(.4),
-        decoration: BoxDecoration(
-          color: selectIndex == 0 ? BaseTheme.mainWhiteColor : buttonColor,
-          border: Border.all(
-              color: selectIndex == 0
-                  ? BaseTheme.expressNotSelectedBorderColor
-                  : borderColor),
-          borderRadius: BorderRadius.circular(12.sp),
-        ),
-        child: Center(
-          child: TextStyleGenerator(
-            text: title,
-          ),
-        ),
-      ),
     );
   }
 }

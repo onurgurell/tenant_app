@@ -20,9 +20,8 @@ class EducationArea extends StatelessWidget {
             ChooseButton(
               onTap: () =>
                   Navigator.of(context).pushNamed("/education_status_page"),
-              title: viewModel.selectedText.isEmpty
-                  ? AppStrings.expressChooseHintTitle
-                  : viewModel.selectedText,
+              title:
+                  viewModel.selectedText ?? AppStrings.expressChooseHintTitle,
             ),
           ],
         );

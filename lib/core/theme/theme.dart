@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class BaseTheme {
+abstract class BaseTheme {
   static const Color profilAppBarColor = Color(0xff3A3335);
   static const Color mainWhiteColor = Color(0xffFFFFFF);
   static const Color mainBlackColor = Colors.black;

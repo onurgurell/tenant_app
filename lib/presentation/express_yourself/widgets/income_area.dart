@@ -6,6 +6,7 @@ import 'package:tenant_app/core/theme/theme.dart';
 import 'package:tenant_app/extensions/context_extension.dart';
 import 'package:tenant_app/ui_kit/base_area/base_area.dart';
 import 'package:tenant_app/ui_kit/button/choose_button.dart';
+import 'package:tenant_app/ui_kit/button/yes_or_no_button.dart';
 import 'package:tenant_app/ui_kit/text/text_withgooglefonts.dart';
 import 'package:tenant_app/view_model/express_yourself_view_model.dart';
 
@@ -23,28 +24,28 @@ class IncomeArea extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _selectedIncomeTab(
-                  context,
-                  1,
-                  AppStrings.expressYesTitle,
-                  viewModel.selectedIncomeButton == 1
+                YesOrNoButton(
+                  onTap: () => viewModel.incomeYesOrNoButton(1),
+                  selectIndex: 1,
+                  title: AppStrings.expressYesTitle,
+                  borderColor: viewModel.selectedIncomeButton == 1
                       ? BaseTheme.expressSelectedColor
                       : BaseTheme.expressNotSelectedBorderColor,
-                  viewModel.selectedIncomeButton == 1
+                  buttonColor: viewModel.selectedIncomeButton == 1
                       ? BaseTheme.expressSelectedButtonColor
                       : BaseTheme.mainWhiteColor,
                 ),
-                _selectedIncomeTab(
-                  context,
-                  2,
-                  AppStrings.expressNoTitle,
-                  viewModel.selectedIncomeButton == 2
+                YesOrNoButton(
+                  onTap: () => viewModel.incomeYesOrNoButton(2),
+                  selectIndex: 2,
+                  title: AppStrings.expressNoTitle,
+                  borderColor: viewModel.selectedIncomeButton == 2
                       ? BaseTheme.expressSelectedColor
                       : BaseTheme.expressNotSelectedBorderColor,
-                  viewModel.selectedIncomeButton == 2
+                  buttonColor: viewModel.selectedIncomeButton == 2
                       ? BaseTheme.expressSelectedButtonColor
                       : BaseTheme.mainWhiteColor,
-                )
+                ),
               ],
             ),
             viewModel.selectedIncomeButton == 1
@@ -111,33 +112,6 @@ class IncomeArea extends StatelessWidget {
           ],
         );
       },
-    );
-  }
-
-  InkWell _selectedIncomeTab(BuildContext context, int selectIndex,
-      String title, Color borderColor, Color buttonColor) {
-    return InkWell(
-      onTap: () {
-        Provider.of<ExpressYourselfViewModel>(context, listen: false)
-            .updateIncomeButton(selectIndex);
-      },
-      child: Container(
-        height: 50.h,
-        width: context.getDynmaicWidth(.4),
-        decoration: BoxDecoration(
-          color: selectIndex == 0 ? BaseTheme.mainWhiteColor : buttonColor,
-          border: Border.all(
-              color: selectIndex == 0
-                  ? BaseTheme.expressNotSelectedBorderColor
-                  : borderColor),
-          borderRadius: BorderRadius.circular(12.sp),
-        ),
-        child: Center(
-          child: TextStyleGenerator(
-            text: title,
-          ),
-        ),
-      ),
     );
   }
 }

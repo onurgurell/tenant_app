@@ -4,14 +4,13 @@ import 'package:tenant_app/core/constants/app_strings.dart';
 import 'package:tenant_app/core/theme/theme.dart';
 import 'package:tenant_app/extensions/context_extension.dart';
 import 'package:tenant_app/ui_kit/base_area/base_area.dart';
-import 'package:tenant_app/ui_kit/text/text_withgooglefonts.dart';
 
 class ExplainYourSelfArea extends StatelessWidget {
   const ExplainYourSelfArea({super.key});
+  final height = 200.0;
 
   @override
   Widget build(BuildContext context) {
-    const height = 200.0;
     return BaseArea(
       title: AppStrings.explainYourSelfTitle,
       widget: [

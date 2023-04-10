@@ -5,21 +5,19 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 
 class ExpressYourselfViewModel extends ChangeNotifier {
-  ExpressYourselfViewModel();
-
   final List<Widget> _addIncomeList = [];
-  String _selectedText = "";
-  int _selectedPetNoButton = 0;
-  int _selectedIncomeButton = 0;
+  String? _selectedText;
+  int? _selectedPetNoButton;
+  int? _selectedIncomeButton;
   bool _isSelected = false;
+  bool _isLoading = false;
   File? _image;
   String? _dateTime;
-  bool _isLoading = false;
   RangeValues _currentRangeValues = const RangeValues(0, 100000);
 
-  String get selectedText => _selectedText;
-  int get selectedPetButton => _selectedPetNoButton;
-  int get selectedIncomeButton => _selectedIncomeButton;
+  String? get selectedText => _selectedText;
+  int? get selectedPetButton => _selectedPetNoButton;
+  int? get selectedIncomeButton => _selectedIncomeButton;
   bool get isSelected => _isSelected;
   RangeValues get currentRangeValues => _currentRangeValues;
   File? get image => _image;
@@ -38,7 +36,7 @@ class ExpressYourselfViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updateYesOrNoButton(int index) {
+  void petYesOrNoButton(int index) {
     _selectedPetNoButton = index;
     notifyListeners();
   }
@@ -48,7 +46,7 @@ class ExpressYourselfViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updateIncomeButton(int index) {
+  void incomeYesOrNoButton(int? index) {
     _selectedIncomeButton = index;
     notifyListeners();
   }

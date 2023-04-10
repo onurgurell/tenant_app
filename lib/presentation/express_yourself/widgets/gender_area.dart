@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tenant_app/core/constants/app_strings.dart';
 import 'package:tenant_app/extensions/context_extension.dart';
 import 'package:tenant_app/ui_kit/base_area/base_area.dart';
-import 'package:tenant_app/ui_kit/button/select_button.dart';
+import 'package:tenant_app/ui_kit/button/multi_button.dart';
 
 class GenderArea extends StatelessWidget {
   const GenderArea({super.key});
