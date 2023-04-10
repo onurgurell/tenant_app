@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tenant_app/core/constants/app_strings.dart';
 import 'package:tenant_app/core/theme/theme.dart';
-import 'package:tenant_app/presentation/express_yourself/widgets/date_and_save_button.dart';
+import 'package:tenant_app/presentation/express_yourself/widgets/date_area.dart';
 import 'package:tenant_app/presentation/express_yourself/widgets/education_area.dart';
 import 'package:tenant_app/presentation/express_yourself/widgets/explain_yourself_area.dart';
 import 'package:tenant_app/presentation/express_yourself/widgets/gender_area.dart';
@@ -11,6 +11,7 @@ import 'package:tenant_app/presentation/express_yourself/widgets/pet_area.dart';
 import 'package:tenant_app/presentation/express_yourself/widgets/price_range_area.dart';
 import 'package:tenant_app/presentation/express_yourself/widgets/profil_area.dart';
 import 'package:tenant_app/presentation/express_yourself/widgets/salary_or_rent_area.dart';
+import 'package:tenant_app/presentation/express_yourself/widgets/save_button.dart';
 import 'package:tenant_app/ui_kit/text/text_withgooglefonts.dart';
 
 class ExpressYourSelfPage extends StatelessWidget {
